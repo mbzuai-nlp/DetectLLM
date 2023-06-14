@@ -1,4 +1,5 @@
 # DetectLLM
+Official code for our paper: 
 DetectLLM: Leveraging Log Rank Information for Zero-Shot Detection of Machine-Generated Text
 
 
