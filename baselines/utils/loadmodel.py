@@ -14,12 +14,12 @@ def load_base_model_and_tokenizer(args, model_config):
     if '13b' in name:
         base_model = transformers.AutoModelForCausalLM.from_pretrained(name, **base_model_kwargs, cache_dir=model_config['cache_dir'], device_map="auto")
     elif '20b' in name:
-        os.environ['TRANSFORMERS_CACHE'] = '/l/users/jinyan.su/detect-gpt/~/.cache'
+        
         config = transformers.AutoConfig.from_pretrained("EleutherAI/gpt-neox-20b")
         with init_empty_weights():
             base_model = transformers.AutoModelForCausalLM.from_config(config)
         base_model = load_checkpoint_and_dispatch(
-            base_model,  "/l/users/jinyan.su/detect-gpt/~/.cache", device_map="auto", no_split_module_classes=["GPTNeoXLayer"]
+            base_model,  model_config['cache_dir'], device_map="auto", no_split_module_classes=["GPTNeoXLayer"]
         )
     
     else:
