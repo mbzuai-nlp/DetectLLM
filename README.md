@@ -174,7 +174,7 @@ bash run.sh # run bash file
 
 ## Citation
 
-Please cite us if you use our data or models.
+Please cite us if you use our code.
 
 ```bibtex
 @article{su2023detectllm,
